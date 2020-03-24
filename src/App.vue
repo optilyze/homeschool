@@ -1,15 +1,20 @@
 <template>
-  <div id="app">
-    <div>Hello</div>
+  <div class="row">
+    <div class="col-sm">
+      HELLO
+    </div>
+    <div class="col-sm">
+      HELLO
+    </div>
+    <div class="col-sm">
+      HELLO
+    </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-Vue.use(VueMaterial)
 
 export default {
   name: 'App',
