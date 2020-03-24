@@ -1,12 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-sm">
-      HELLO
-    </div>
-    <div class="col-sm">
-      HELLO
-    </div>
-    <div class="col-sm">
+    <div class="col offset-md-3">
       HELLO
     </div>
   </div>
@@ -14,6 +8,7 @@
 
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './css/utility.css'
 
 
 export default {
