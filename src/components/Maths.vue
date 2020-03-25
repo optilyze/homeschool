@@ -4,7 +4,14 @@
     <div class="row" v-if="quizType&&level">
       <div class="col col-md-6 offset-md-3">
         <h4 class="text-center">
-          {{quizType.name}}
+          {{quizType.name}} Level {{level}}
+        </h4>
+        <h4 class="mt-5 text-center">
+          <div >
+            <div v-if="secondsLeft == 3">Ready...</div> 
+            <div v-if="secondsLeft == 2">Spaghetti...</div> 
+            <div v-if="secondsLeft == 1">Go!</div>
+          </div>
         </h4>
       </div>
     </div>
@@ -50,6 +57,9 @@
 </template>
 
 <script>
+
+// import router from "vue-router";
+
 export default {
   name: 'Maths',
   props: {
@@ -80,6 +90,7 @@ export default {
         }
       ],
       level: false,
+      secondsLeft: false,
     }
   },
   computed: {
@@ -93,6 +104,16 @@ export default {
     },
     setLevel: function(to) {
       this.level = to;
+      this.prepareTimer();
+    },
+    prepareTimer: function() {
+      this.secondsLeft = 3;
+      var vm = this;
+      setTimeout(() => vm.secondsLeft = 2, 1000);
+      setTimeout(() => vm.secondsLeft = 1, 2000);
+      setTimeout(() => {
+        vm.$router.push({path: "maths-quiz", query: {quizType: vm.quizType.code, level: vm.level}});
+      }, 3000);
     }
   }
 }
